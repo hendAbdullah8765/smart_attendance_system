@@ -34,7 +34,7 @@ exports.createValidator = [
     return true;
   }),
 
-check('address')
+check('address').optional()
   .notEmpty().withMessage('Address is required')
   .custom(async (val) => {
     const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
